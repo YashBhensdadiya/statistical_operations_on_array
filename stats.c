@@ -57,37 +57,84 @@ void main() {
 
 unsigned char find_maximum(unsigned char *arr,unsigned int length)
 {
-	
+	unsigned char large=0;
+	for(int i=0;i<length;i++)
+	{
+		if(*(arr+i)>large)
+		{
+			large=*(arr+i);
+		}
+	}
+	return large;
 }
 
 
 
 unsigned char find_minimum(unsigned char *arr,unsigned int length,unsigned char max)
 {
+	unsigned char big=max;
+	for(int i=0;i<length;i++)
+	{
 	
+		if(*(arr+i)<big)
+		{
+			big=*(arr+i);
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													
+		}
+	}
+	return big;
 }
 
 
 float find_mean(unsigned char *arr,unsigned int length)
 {
-	
+	unsigned int sum=0;
+	for(int i=0;i<length;i++)	     
+	{
+   sum+=*(arr+i);																																																																																																																																																																																																																																																																																																																																																											
+	}
+		
+	return (float)sum/length;
 }
 
 void print_array(unsigned char *arr,unsigned int length)
 {
-	
+	printf("\n");
+	for(int count=0;count<length;count++)
+	{
+		printf("%d,",*(arr+count));
+	}
+	printf("\n");
 }
 
 void sort_array(unsigned char *arr,unsigned int length)
 {
-		
-	
+	unsigned char change=0;
+	for(int i=0;i<length;i++)
+	{
+		for(int j=i+1;j<=length;j++)
+		{
+		if(arr[i]<arr[j])
+		{
+			change=arr[i];
+			arr[i]=arr[j];
+			arr[j]=change;
+		}
+		}
+	}
 }
 
 
 float find_median(unsigned char *arr,unsigned int length)
 {
-	
+	if(length%2==0)
+	{
+		return (float)(*(arr+((length-1)/2))+*(arr+length/2))/2;
+	}
+	else
+	{
+		return (float)*(arr+(length/2));
+	}
 }
 
 
@@ -95,6 +142,9 @@ float find_median(unsigned char *arr,unsigned int length)
 
 void print_statistics(unsigned char max,unsigned char min,float mean,float median)
 {
-	
+	printf("\nMaximum=%d",max);
+	printf("\nMinimum=%d",min);
+	printf("\nMean=%.3f",mean);
+	printf("\nMedian=%.2f\n",median);
 }
 
